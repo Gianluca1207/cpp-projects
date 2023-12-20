@@ -31,3 +31,9 @@ void Library::searchBook (std::string searchTerm) {
         }
     }
 }
+
+void Library::DisplayTotalNumber () {
+    //for (int i=0; i < books.size(); i++)    using a for loop is unnecessary
+
+    std::cout << "Total number of books in the library: " << books.size() << endl;     // I use the size method, because books is a vector and not an array
+}

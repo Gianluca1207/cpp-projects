@@ -8,7 +8,7 @@ class Book {
     int ISBN;
     int Year_of_Publication;
 
-    public:
+    public:                  // all the methods must be declared in the public section !
         Book (std::string new_Title, std::string new_Author, int new_ISBN, int new_Year_of_Publication);     //declaration of constructor
 
     //getter methods
@@ -29,6 +29,7 @@ class Book {
     }
 };
 
+
 class Library {
 
     std::vector<Book> books ;            // vectors of book objects
@@ -38,5 +39,6 @@ class Library {
         void addBook (Book book);            // make sure to add the return type when declaring methods !
         void display_Books ();
         void searchBook (std::string searchTerm);
+        void DisplayTotalNumber ();       // nothing must be added inside the parentheses as the method itself is called on a Library object
 };
 

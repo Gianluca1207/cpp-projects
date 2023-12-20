@@ -63,6 +63,16 @@ int main() {
             std::cin.ignore();
             std::getline (std::cin, searchTerm);
             lib.searchBook(searchTerm);      // make sure to type lib.searchBook and not only searchBook !!
+            break;
+        }
+
+        case 4: {
+            lib.DisplayTotalNumber() ;
+            break;
+        }
+
+        case 5: {
+            break;
         }
 
         default:
