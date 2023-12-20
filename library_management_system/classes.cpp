@@ -13,7 +13,7 @@ void Library::addBook (Book book) {           // make sure to add the return typ
 }
 
 void Library::display_Books() {
-    for (const Book& book: books) {
+    for (const Book& book: books) {     // using the & symbol  avoids making a copy of each Book object during each iteration of the loop
         std::cout << book.get_Title() << endl;        //make sure to add () for each method
         std::cout << book.get_Author() << endl;
         std::cout << book.get_ISBN() << endl;
@@ -22,10 +22,10 @@ void Library::display_Books() {
 }
 
 void Library::searchBook (std::string searchTerm) {
-    for (const Book& book : books) {
+    for (const Book& book : books) {           // using the & symbol  avoids making a copy of each Book object during each iteration of the loop
         if (book.get_Author() == searchTerm || book.get_Title() == searchTerm) {
             std::cout << book.get_Title() << endl;        
-            std::cout << book.get_Author() << endl;       // print all book details (we can't use the DisplayBooks method because it woudl show the whole library of
+            std::cout << book.get_Author() << endl;       // print all book details (we can't use the DisplayBooks method because it would show the whole library of
             std::cout << book.get_ISBN() << endl;         // books !! )
             std::cout << book.get_Year() << endl;
         }

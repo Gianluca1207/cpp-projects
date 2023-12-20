@@ -87,7 +87,7 @@ bool checkWinner (char* spaces, char player, char computer) {
 }
 
 bool checkTie (char* spaces) {
-    for (int i=0 ; i < 9 ; i++) {      // if we hadn't kown that the array has a size of 9, we would have had to type i < size and pass size as parameter
+    for (int i=0 ; i < 9 ; i++) {      // if we hadn't known that the array has a size of 9, we would have had to type i < size and pass size as parameter
         if (spaces[i] == ' ' )       // we only have to check if there are empty spaces
             return false;         //if we find an empty space, we return false
     }
