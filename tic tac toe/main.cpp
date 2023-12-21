@@ -40,7 +40,7 @@ void ComputerMove (char* spaces, char computer) {
     int number;
     srand(time(0));
 
-    while (true) {    // do this to do and endless while
+    while (true) {    // do this to do an endless while
         number = rand() % 9;           // generate a random number between 0 and 8
         number--;
         if (spaces[number] == ' ') {     //if the space at index of number is empty
@@ -51,7 +51,7 @@ void ComputerMove (char* spaces, char computer) {
 }
 
 bool checkWinner (char* spaces, char player, char computer) {
-    if (spaces[0] != ' ' && spaces[0] == spaces[1] && spaces[1] == spaces[2]) {  //if the first space is not equal to an empty space and the first row all has the same characters
+    if (spaces[0] != ' ' && spaces[0] == spaces[1] && spaces[1] == spaces[2]) {  // if the first space is not equal to an empty space and the first row all has the same characters
         spaces[0] == player ? cout << "YOU WIN \n" : cout << "YOU LOSE \n" ;
         return true;
     }
