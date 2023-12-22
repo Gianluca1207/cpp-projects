@@ -31,7 +31,7 @@ void inputMatrix(std::vector<std::vector<int>>& matrix, int rows, int cols) {
 } */
 
 // Function to add two matrices
-std::vector<std::vector<int>> addMatrices (std::vector<std::vector<int>>& A, std::vector<std::vector<int>> B) {
+std::vector<std::vector<int>> addMatrices (std::vector<std::vector<int>>& A, std::vector<std::vector<int>> B) {   //remember the & !!
     // Get the dimensions (rows and columns) of matrix A
     int rows = A.size();
     int cols = A[0].size() ;
@@ -61,7 +61,7 @@ void displayMatrix (std::vector<std::vector<int>>& matrix) {
 }
 
 // Function to subtract two matrices
-std::vector<std::vector<int>> subtractMatrices (std::vector<std::vector<int>>& A, std::vector<std::vector<int>> B) {
+std::vector<std::vector<int>> subtractMatrices (std::vector<std::vector<int>>& A, std::vector<std::vector<int>>& B) {   //remember the & !!
     // Get the dimensions (rows and columns) of matrix A
     int rows = A.size();
     int cols = A[0].size() ;
@@ -73,6 +73,29 @@ std::vector<std::vector<int>> subtractMatrices (std::vector<std::vector<int>>& A
     for (int i=0; i<rows; i++) {
         for (int j=0 ; j<cols ; j++) {
             C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+
+    return C;
+}
+
+// Function to multiply two matrices
+std::vector<std::vector<int>> multiplyMatrices (std::vector<std::vector<int>>& A, std::vector<std::vector<int>>& B) {    //remember the & !!
+    // Get the dimensions (rows and columns) of matrix A
+    int rowsA = A.size();
+    int colsA = A[0].size() ;
+                              //we don't need rowsB to perform matrix multiplication
+    int colsB = B[0].size();
+
+    // Create a new matrix C to store the multiplication result with rowsA and colsB as dimensions
+    std::vector<std::vector<int>> C(rowsA, std::vector<int>(colsB));    // correct way to initialize a vector of vectors with a specified size  
+
+    // Perform matrix multiplication
+    for (int i=0; i<rowsA; i++) {
+        for (int j=0 ; j<colsB ; j++) {
+            for (int k=0; k<colsA; k++) {
+            C[i][j] += A[i][k] * B[k][j];
+            }
         }
     }
 
@@ -127,6 +150,10 @@ int main() {
     D = subtractMatrices(A, B);
     std::cout << "Matrix D (A - B):\n";
     displayMatrix(D);
+
+    E = multiplyMatrices(A, B);
+    std::cout << "Matrix E (A * B):\n";
+    displayMatrix(E);
 
 
     return 0;
