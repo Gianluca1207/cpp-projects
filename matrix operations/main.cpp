@@ -60,6 +60,24 @@ void displayMatrix (std::vector<std::vector<int>>& matrix) {
     std::cout << std::endl;
 }
 
+// Function to subtract two matrices
+std::vector<std::vector<int>> subtractMatrices (std::vector<std::vector<int>>& A, std::vector<std::vector<int>> B) {
+    // Get the dimensions (rows and columns) of matrix A
+    int rows = A.size();
+    int cols = A[0].size() ;
+
+    // Create a new matrix C to store the addition result with the same dimensions as A
+    std::vector<std::vector<int>> C(rows, std::vector<int>(cols));    // correct way to initialize a vector of vectors with a specified size  
+
+    // Loop over each element of the matrices A and B
+    for (int i=0; i<rows; i++) {
+        for (int j=0 ; j<cols ; j++) {
+            C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+
+    return C;
+}
 
 int main() {
 
@@ -105,6 +123,10 @@ int main() {
     C = addMatrices(A, B);
     std::cout << "Matrix C (A + B):\n";
     displayMatrix(C);
+
+    D = subtractMatrices(A, B);
+    std::cout << "Matrix D (A - B):\n";
+    displayMatrix(D);
 
 
     return 0;
