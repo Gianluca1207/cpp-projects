@@ -8,7 +8,7 @@ class Student {
     float grades[3];     //array to store the grades for 3 subjects
 
     public:
-        Student (std::string name, int ID, float grades[]);     //this is a declaration of constructor (not a definition)
+        Student () : ID(0), grades{0.0f, 0.0f, 0.0f} {} ;     // this is a declaration of constructor (not a definition !)
 
         // setter methods
         void setName (std::string newName) {
@@ -17,6 +17,12 @@ class Student {
 
         void setID (int newID) {
             this->ID = newID;
+        }
+
+        void setGrades (const float newGrades[3]) {
+            for (int i=0; i<3; i++) {
+                grades [i] = newGrades[i] ;
+            }
         }
 
         //getter methods
@@ -40,7 +46,7 @@ class Student {
             for (int i=0; i<3; i++) {
                 sum += grades [i];
               }
-            return sum;
+            return sum/3;
         }
 
 
